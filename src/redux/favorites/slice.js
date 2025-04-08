@@ -8,21 +8,17 @@ const slice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addToFavorites(state, { payload }) {
-      if (!state.favorites.includes(payload)) {
+    toggleFavorite(state, { payload }) {
+      const index = state.favorites.indexOf(payload);
+      if (index !== -1) {
+        state.favorites = state.favorites.filter((id) => id !== payload);
+      } else {
         state.favorites.push(payload);
       }
-    },
-    removeFromFavorites(state, { payload }) {
-      state.favorites = state.favorites.filter((id) => id !== payload);
-    },
-    resetFavorites() {
-      return initialState;
     },
   },
 });
 
-export const { addToFavorites, removeFromFavorites, resetFavorites } =
-  slice.actions;
+export const { toggleFavorite } = slice.actions;
 
 export const favoritesReducer = slice.reducer;

@@ -8,9 +8,7 @@ const HomePage = () => {
       <p className={css.text}>
         Reliable and budget-friendly rentals for any journey
       </p>
-      {/* <button className={css.btn} type="button">
-        View Catalog
-      </button> */}
+
       <NavLink className={css.btn} to="/catalog">
         View Catalog
       </NavLink>

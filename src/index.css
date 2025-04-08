@@ -1,68 +1,123 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-family: "Manrope-Regular";
+  src: url("./fonts/Manrope-Regular.ttf");
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
-a {
+@font-face {
+  font-family: "Manrope-Medium";
+  src: url("./fonts/Manrope-Medium.ttf");
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: "Manrope-SemiBold";
+  src: url("./fonts/Manrope-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Manrope-Bold";
+  src: url("./fonts/Manrope-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: url("./fonts/Inter-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("./fonts/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+/*========================*/
+
+:root {
+  --main: #101828;
+  --light: #8d929a;
+  --white: #fff;
+  --blue: #3470ff;
+  --blue-hover: #0b44cd;
+  --grey-header: #f2f4f7;
+  --grey-input: #f7f7f7;
+  --font-family: "Manrope", sans-serif;
+}
+
+/*========================*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0;
+  border: none;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: inherit;
+  background-color: transparent;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/*========================*/
+
+/* .container {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 16px;
+  margin: 0 auto;
+  background-color: var(--white);
+} */

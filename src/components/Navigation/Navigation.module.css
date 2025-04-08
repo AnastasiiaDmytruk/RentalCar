@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+  gap: 32px;
+}
+.link {
+  font-family: var(--font-family);
+  color: var(--main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  transition: color 0.2s ease-in-out;
+}
+
+.active {
+  color: var(--blue-hover);
+}

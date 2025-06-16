@@ -40,11 +40,32 @@
   --blue-hover: #0b44cd;
   --grey-header: #f2f4f7;
   --grey-input: #f7f7f7;
+  --grey-dark: #dadde1;
   --font-family: "Manrope", sans-serif;
 }
 
 /*========================*/
 
+
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+  width: 36px;
+  line-height: 36px;
+  margin: 2px;
+  font-size: 14px;
+  color: #2c2c2c;
+}
+.react-datepicker__month-container .react-datepicker__header{
+  border-bottom: 1px solid blue;
+}
+
+.react-datepicker__navigation-icon::before{
+  border-color: blue;
+}
+.react-datepicker__navigation:hover *::before {
+    border-color: blue;
+}
 *,
 *::before,
 *::after {
@@ -61,8 +82,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* min-width: 320px;
-  min-height: 100vh; */
+  min-width: 1440px;
+  /* min-height: 100vh; */
 }
 
 h1,
@@ -99,7 +120,7 @@ a {
 }
 
 img {
-  max-width: 100%;
+  /* max-width: 100%; */
   display: block;
   height: auto;
 }

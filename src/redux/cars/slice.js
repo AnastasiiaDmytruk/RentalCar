@@ -1,8 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCarsByBrand, fetchCarsWithParams } from "../cars/operations.js";
+import {
+  fetchCarById,
+  fetchAllCars,
+  fetchCarBrands,
+} from "../cars/operations.js";
 
 const initialState = {
   cars: [],
+  brands: [],
+  currentCar: null,
   isLoading: false,
   error: null,
 };
@@ -21,19 +27,36 @@ const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCarsByBrand.pending, handlePending)
-      .addCase(fetchCarsByBrand.rejected, handleRejected)
-      .addCase(fetchCarsByBrand.fulfilled, (state, { payload }) => {
+      .addCase(fetchAllCars.pending, handlePending)
+      .addCase(fetchAllCars.rejected, handleRejected)
+      .addCase(fetchAllCars.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.cars = payload;
+        if (payload.page > 1) {
+          const uniqueCars = payload.cars.filter(car => {
+                        return !state.cars.some(existingCar => existingCar.id === car.id);
+                    });
+          state.cars.push(...uniqueCars);
+          return;
+        }
+
+        
+        state.cars = payload.cars;
+
       })
-      .addCase(fetchCarsWithParams.pending, handlePending)
-      .addCase(fetchCarsWithParams.rejected, handleRejected)
-      .addCase(fetchCarsWithParams.fulfilled, (state, { payload }) => {
+      .addCase(fetchCarBrands.pending, handlePending)
+      .addCase(fetchCarBrands.rejected, handleRejected)
+      .addCase(fetchCarBrands.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.cars = payload;
+        state.brands = payload;
+      })
+      .addCase(fetchCarById.pending, handlePending)
+      .addCase(fetchCarById.rejected, handleRejected)
+      .addCase(fetchCarById.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.currentCar = payload;
       });
   },
 });

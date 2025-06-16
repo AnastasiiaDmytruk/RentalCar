@@ -1,0 +1,53 @@
+.mainWrp {
+  display: flex;
+  gap: 72px;
+  margin-top: 84px;
+}
+
+.img {
+  width: 640px;
+  height: 512px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+}
+
+.titleInfo {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+  padding-bottom: 8px;
+}
+.titleSpan {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+.locationWrp {
+  display: flex;
+  padding-bottom: 16px;
+}
+.price {
+  padding-bottom: 32px;
+}
+.wrapper {
+  max-width: 488px;
+}
+.li,
+.info {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.ul {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+}

@@ -1,0 +1,15 @@
+.container {
+  /* padding: 20px 120px; */
+  position: relative;
+}
+.list {
+  display: grid;
+  grid-template-columns: 276px 276px 276px 276px;
+
+  gap: 48px 32px;
+
+  justify-content: center;
+}
+.item {
+  position: relative;
+}

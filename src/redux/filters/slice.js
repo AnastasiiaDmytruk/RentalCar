@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { fetchCarsWithParams } from "../cars/operations.js";
+import { fetchAllCars } from "../cars/operations.js";
 
 const initialState = {
   filters: {
-    brand: "",
-    price: "",
-    minMileage: "",
-    maxMileage: "",
+    brand: null,
+    rentalPrice: null,
+    minMileage: null,
+    maxMileage: null,
   },
   page: 1,
   limit: 12,
@@ -37,12 +37,13 @@ const slice = createSlice(
         state.totalPages = payload;
       },
     },
+  
+    extraReducers: (builder) => {
+      builder.addCase(fetchAllCars.fulfilled, (state, { payload }) => {
+        state.totalPages = payload.totalPages;
+      })
+    },
   }
-  // extraReducers: (builder) => {
-  //     builder.addCase(fetchCarsWithParams.fulfilled, (state, { payload }) => {
-
-  //     })
-  // },
 );
 export const {
   setFilters,

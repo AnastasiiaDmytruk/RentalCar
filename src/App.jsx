@@ -14,8 +14,8 @@ const NotFoundPage = lazy(() =>
 function App() {
   return (
     <div>
-      <AppBar />
       <Suspense fallback={<Loader />}>
+        <AppBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />

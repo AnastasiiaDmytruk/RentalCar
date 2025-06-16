@@ -18,15 +18,16 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
+  whitelist: ["favorites"],
 };
 
-const persistedReducer = persistReducer(persistConfig, carsReducer);
+const persistedReducer = persistReducer(persistConfig, favoritesReducer);
 
 export const store = configureStore({
   reducer: {
-    cars: persistedReducer,
+    cars: carsReducer,
     filters: filterReducer,
-    favorites: favoritesReducer,
+    favorites: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

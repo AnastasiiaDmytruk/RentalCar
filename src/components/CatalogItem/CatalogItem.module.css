@@ -1,0 +1,76 @@
+.imgWrp {
+  position: relative;
+  margin-bottom: 16px;
+}
+.img {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  object-fit: cover;
+  display: block;
+}
+.svg {
+
+  fill:rgba(82, 82, 82, 0.86);
+  transition: fill 0.3s ease-in-out;
+}
+.svgBlue {
+  fill: var(--blue);
+  transition: fill 0.3s ease-in-out;
+}
+.btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.textWrp {
+  font-family: var(--font-family);
+  color: var(--main);
+
+  font-size: 16px;
+}
+.brandTextWrp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.carName {
+  font-weight: 500;
+}
+.spanCarModel {
+  color: var(--blue);
+}
+
+.carInfoList {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.carInfoItem::after {
+  content: "|";
+  margin: 0 6px;
+}
+.carInfoItem:last-child::after {
+  content: "";
+}
+.btnWrp {
+  padding: 12px 0;
+  background: var(--blue);
+  border-radius: 12px;
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+.readMoreBtn{
+text-align: center; 
+ color: #fff;
+}

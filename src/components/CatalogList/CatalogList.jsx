@@ -1,23 +1,42 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCarsWithParams } from "../../redux/cars/operations.js";
+import { selectCars, selectIsLoading } from "../../redux/cars/selectors.js";
+import { fetchAllCars } from "../../redux/cars/operations.js";
 import CatalogItem from "../CatalogItem/CatalogItem.jsx";
-import { selectCars } from "../../redux/cars/selectors.js";
+import Loader from "../Loader/Loader.jsx";
+import css from "./CatalogList.module.css";
+import { selectFilters, selectLimit, selectPage } from "../../redux/filters/selectors.js";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
+
 
 const CatalogList = () => {
   const dispatch = useDispatch();
-  const { cars } = useSelector(selectCars);
+  const cars = useSelector(selectCars);
+  const loading = useSelector(selectIsLoading);
+  const limit = useSelector(selectLimit);
+  const page = useSelector(selectPage);
   // console.log("cars:", cars);
 
-  useEffect(() => {
-    dispatch(fetchCarsWithParams({}));
-  }, [dispatch]);
+  const filters = useSelector(selectFilters);
+  const payload={...filters, page, limit}
 
-  return (
-    <div>
-      {cars.map((car) => (
-        <CatalogItem key={car.id} car={car} />
-      ))}
+  useEffect(() => {
+    dispatch(fetchAllCars(payload));
+  }, [dispatch, page, filters]);
+
+  return loading ? (
+    <Loader />
+  ) : (
+    <div className={css.container}>
+      {/* {cars?.length > 0 && */}
+      <ul className={css.list}>
+        {cars.map((car) => (
+          <li key={car.id} className={css.item}>
+            <CatalogItem car={car} />
+          </li>
+        ))}
+        </ul>
+              <LoadMoreBtn/>
     </div>
   );
 };

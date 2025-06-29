@@ -1,7 +1,13 @@
-.mainWrp {
+.container {
   display: flex;
   gap: 72px;
-  margin-top: 84px;
+  margin: 84px auto 104px;
+  max-width: 1200px;
+}
+.rightSideWrp {
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
 }
 
 .img {
@@ -11,9 +17,15 @@
   border-radius: 20px;
 }
 
+.brandTextWrp {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .titleInfo {
   font-family: "Manrope", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 24px;
   line-height: 1.33333;
   color: #101828;
@@ -28,14 +40,30 @@
 }
 .locationWrp {
   display: flex;
-  padding-bottom: 16px;
+  /* gap: 16px; */
+  column-gap: 16px;
+}
+.location {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.mileageWrp {
+  align-items: center;
 }
 .price {
-  padding-bottom: 32px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--blue);
+  margin-top: 16px;
+  margin-bottom: 32px;
+  font-family: "Manrope", sans-serif;
 }
-.wrapper {
-  max-width: 488px;
-}
+
 .li,
 .info {
   font-family: "Manrope", sans-serif;
@@ -43,11 +71,40 @@
   font-size: 16px;
   line-height: 1.25;
   color: #101828;
+  max-width: 488px;
 }
-.ul {
-  font-family: "Manrope", sans-serif;
-  font-weight: 600;
+
+.listWrp {
+  display: flex;
+  flex-direction: column;
+  row-gap: 53px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.title {
   font-size: 20px;
   line-height: 1.2;
-  color: #101828;
+  color: var(--main);
+}
+.ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  & li {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    & p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+  }
+}
+.icon {
+  /* fill: none;
+   */
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import sprite from "../../assets/sprite.svg";
 import css from "./CarPrice.module.css";
-const CarPrice = ({values, setFieldValue}) => {
+const CarPrice = ({ values, setFieldValue }) => {
   const [openList, setOpenList] = useState(false);
   const [choosePrice, setChoosePrice] = useState(null);
 
@@ -12,12 +12,8 @@ const CarPrice = ({values, setFieldValue}) => {
   };
   const handlePrice = (value) => {
     setChoosePrice(value);
-       setFieldValue("rentalPrice", value);
+    setFieldValue("rentalPrice", value);
   };
-
-
-
-
 
   return (
     <div className={css.wrapper}>
@@ -33,12 +29,11 @@ const CarPrice = ({values, setFieldValue}) => {
       {openList && (
         <ul className={css.list}>
           {priceList.map((price) => {
-        
             let activeCar = false;
             if (values.rentalPrice === price) {
               activeCar = true;
             }
-            return(
+            return (
               <li key={price} className={activeCar ? css.activeItem : css.item}>
                 <button
                   onClick={() => {
@@ -50,7 +45,7 @@ const CarPrice = ({values, setFieldValue}) => {
                   {price}
                 </button>
               </li>
-            )
+            );
           })}
         </ul>
       )}

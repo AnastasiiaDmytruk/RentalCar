@@ -1,65 +1,80 @@
-.wrapper{
-  padding:32px;
-    border: 1px solid #dadde1;
-    border-radius:10px;
-width:640px;
+.wrapper {
+  padding: 32px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  width: 640px;
 }
 
-.form{
-  display:flex;
-    flex-direction:column;
-    gap:24px;
+.form {
+  display: flex;
+  flex-direction: column;
+  /* gap: 24px; */
+  position: relative;
 }
-.title{
-  margin-bottom:8px;
+.title {
+  margin-bottom: 8px;
   font-family: "Manrope", sans-serif;
-font-weight: 500;
-font-size: 20px;
-line-height: 1.2;
-color: #101828;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
 }
-.text{
+.text {
   font-family: "Manrope", sans-serif;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.25;
-color: #8d929a;
-  margin-bottom:24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  margin-bottom: 24px;
 }
-.input{
-    width:576px;
-    color:#8D929A;
-    font-weight:500;
+.input {
+  width: 576px;
+  color: #8d929a;
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  font-family: "Manrope", sans-serif;
+  background: #f7f7f7;
+  resize: none;
+  margin-bottom: 20px;
+}
+.fieldWrp {
+  position: relative;
+}
 
-    padding:14px 20px;
-    border-radius:12px;
-    border:none;
-      font-family: "Manrope", sans-serif;
-      background:#F7F7F7;
-      resize:none;
-
+.btn {
+  border: none;
+  border-radius: 12px;
+  background: var(--blue);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
+  width: 156px;
+  height: 44px;
+  margin: 0 auto;
 }
-.fieldWrp{
-  position:relative;
-}
-
-.btn{
-    border: none;
-    border-radius: 12px;
-    background: var(--blue);
-    cursor: pointer;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    color: var(--white);
-    width: 156px;
-    height: 44px;
-    margin:0 auto;
-}
-.error{
+.error {
   color: red;
   position: absolute;
   font-family: var(--font-family);
-      font-size: 12px;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+.calendarWrp {
+  background-color: #black;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: absolute;
+}
+.calendarWrp .react-datepicker__day--selected {
+  background-color: #black;
+  color: white;
 }

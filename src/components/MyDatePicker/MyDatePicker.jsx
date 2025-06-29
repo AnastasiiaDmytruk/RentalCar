@@ -1,7 +1,7 @@
 import { useField, useFormikContext } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import css from './MyDatePicker.module.css';
+import css from "./MyDatePicker.module.css";
 import { addMonths } from "date-fns";
 import { useState } from "react";
 
@@ -9,14 +9,14 @@ const MyDatePicker = ({ name }) => {
   const { setFieldValue } = useFormikContext();
   const [field] = useField(name);
 
-  const [startDate, setStartDate] = useState(field.value??null);
+  const [startDate, setStartDate] = useState(field.value ?? null);
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    setFieldValue(name, dates)
-  }
+    setFieldValue(name, dates);
+  };
 
   return (
     <DatePicker
@@ -32,10 +32,9 @@ const MyDatePicker = ({ name }) => {
       className={css.customInput}
       calendarClassName={css.customCalendar}
       popperPlacement="bottom"
-
-      
+      formatWeekDay={(nameOfDay) => nameOfDay.slice(0, 3).toUpperCase()}
     />
   );
 };
 
-  export default MyDatePicker;
+export default MyDatePicker;

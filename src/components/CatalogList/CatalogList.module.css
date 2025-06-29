@@ -1,14 +1,18 @@
 .container {
-  /* padding: 20px 120px; */
   position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 }
 .list {
   display: grid;
-  grid-template-columns: 276px 276px 276px 276px;
-
+  grid-template-columns: 320px 320px 320px 320px;
   gap: 48px 32px;
-
   justify-content: center;
+  margin-bottom: 85px;
 }
 .item {
   position: relative;

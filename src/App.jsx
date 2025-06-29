@@ -1,6 +1,6 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import AppBar from "./components/AppBar/AppBar.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 

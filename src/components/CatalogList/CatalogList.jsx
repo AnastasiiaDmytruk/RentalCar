@@ -5,9 +5,12 @@ import { fetchAllCars } from "../../redux/cars/operations.js";
 import CatalogItem from "../CatalogItem/CatalogItem.jsx";
 import Loader from "../Loader/Loader.jsx";
 import css from "./CatalogList.module.css";
-import { selectFilters, selectLimit, selectPage } from "../../redux/filters/selectors.js";
+import {
+  selectFilters,
+  selectLimit,
+  selectPage,
+} from "../../redux/filters/selectors.js";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
-
 
 const CatalogList = () => {
   const dispatch = useDispatch();
@@ -18,7 +21,7 @@ const CatalogList = () => {
   // console.log("cars:", cars);
 
   const filters = useSelector(selectFilters);
-  const payload={...filters, page, limit}
+  const payload = { ...filters, page, limit };
 
   useEffect(() => {
     dispatch(fetchAllCars(payload));
@@ -28,15 +31,22 @@ const CatalogList = () => {
     <Loader />
   ) : (
     <div className={css.container}>
-      {/* {cars?.length > 0 && */}
-      <ul className={css.list}>
-        {cars.map((car) => (
-          <li key={car.id} className={css.item}>
-            <CatalogItem car={car} />
-          </li>
-        ))}
-        </ul>
-              <LoadMoreBtn/>
+      {cars?.length > 0 ? (
+        <>
+          <ul className={css.list}>
+            {cars.map((car) => (
+              <li key={car.id} className={css.item}>
+                <CatalogItem car={car} />
+              </li>
+            ))}
+          </ul>
+          <LoadMoreBtn />
+        </>
+      ) : (
+        <h3 className={css.text}>
+          No cars found. Please change filters and try again.
+        </h3>
+      )}
     </div>
   );
 };

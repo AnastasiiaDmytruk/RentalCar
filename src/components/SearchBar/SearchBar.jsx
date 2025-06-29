@@ -9,39 +9,38 @@ import CarMileage from "../CarMileage/CarMileage.jsx";
 import { setFilters } from "../../redux/filters/slice.js";
 
 const SearchBar = () => {
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
-      const normalizeValues = (values) => {
-        return Object.fromEntries(
-            Object.entries(values).map(([key, value]) => [
-            key,
-            (typeof value === 'string' && value.trim() === '') ? null : value,
-            ])
-        );
-      };
-  
-  const handleSubmit = (values) => {
-    
-    const newPrice = values.rentalPrice;
-    values.rentalPrice = Number(newPrice);
+  const normalizeValues = (values) => {
+    return Object.fromEntries(
+      Object.entries(values).map(([key, value]) => [
+        key,
+        typeof value === "string" && value.trim() === "" ? null : value,
+      ])
+    );
+  };
 
-      const payload = normalizeValues(values);
+  const handleSubmit = (values) => {
+    // const newPrice = values.rentalPrice;
+    // values.rentalPrice = Number(newPrice);
+
+    const payload = normalizeValues(values);
 
     dispatch(setFilters(payload));
-    
-  }
-
+  };
 
   return (
     <div className={css.searchBarWrp}>
-      <Formik onSubmit={handleSubmit}  initialValues={filters}>
+      <Formik onSubmit={handleSubmit} initialValues={filters}>
         {({ values, setFieldValue }) => (
           <Form className={css.form}>
             <CarBrand values={values} setFieldValue={setFieldValue} />
             <CarPrice values={values} setFieldValue={setFieldValue} />
             <CarMileage values={values} setFieldValue={setFieldValue} />
-            <button className={css.btn} type="submit" >Search</button>
+            <button className={css.btn} type="submit">
+              Search
+            </button>
           </Form>
         )}
       </Formik>

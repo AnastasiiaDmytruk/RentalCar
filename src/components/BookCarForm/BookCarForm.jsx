@@ -2,7 +2,6 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
 import MyDatePicker from "../MyDatePicker/MyDatePicker.jsx";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./BookCarForm.module.css";
 

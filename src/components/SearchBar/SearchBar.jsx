@@ -1,11 +1,10 @@
 import { Form, Formik } from "formik";
-import css from "./SearchBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters } from "../../redux/filters/selectors.js";
 import CarBrand from "../CarBrand/CarBrand.jsx";
-import CarPrice from "../CarPrice/CarPrice.jsx";
 import CarMileage from "../CarMileage/CarMileage.jsx";
-// import { fetchAllCars } from "../../redux/cars/operations.js";
+import CarPrice from "../CarPrice/CarPrice.jsx";
+import css from "./SearchBar.module.css";
 import { setFilters } from "../../redux/filters/slice.js";
 
 const SearchBar = () => {
@@ -22,11 +21,7 @@ const SearchBar = () => {
   };
 
   const handleSubmit = (values) => {
-    // const newPrice = values.rentalPrice;
-    // values.rentalPrice = Number(newPrice);
-
     const payload = normalizeValues(values);
-
     dispatch(setFilters(payload));
   };
 

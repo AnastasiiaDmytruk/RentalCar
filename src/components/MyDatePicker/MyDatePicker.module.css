@@ -12,8 +12,7 @@
 }
 
 .customInput::placeholder {
-  /* color: var(--grey-dark); */
-  color: #8d929a;
+  color: var(--light);
 }
 
 .custom-calendar {

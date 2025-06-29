@@ -18,7 +18,6 @@ const CatalogList = () => {
   const loading = useSelector(selectIsLoading);
   const limit = useSelector(selectLimit);
   const page = useSelector(selectPage);
-  // console.log("cars:", cars);
 
   const filters = useSelector(selectFilters);
   const payload = { ...filters, page, limit };
